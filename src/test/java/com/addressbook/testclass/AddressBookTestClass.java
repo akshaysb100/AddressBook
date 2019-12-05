@@ -16,7 +16,6 @@ public class AddressBookTestClass {
 
         Assert.assertEquals(true,addressBookServices.createAddressBook( "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/newaddressbook.json"));
     }
-
     @Test
     public void WhenFilePath_AndReturnTypeWrong_TrowException() {
 

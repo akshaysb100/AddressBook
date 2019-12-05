@@ -1,6 +1,6 @@
 package com.addressbook.customexception;
 
-public class AddressBookCustomException extends Exception{
+public class AddressBookCustomException extends  Exception {
 
     public enum ExceptionType {
         NO_SUCH_FILE

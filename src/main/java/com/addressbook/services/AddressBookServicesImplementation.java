@@ -30,7 +30,8 @@ public class AddressBookServicesImplementation implements AddressBookServices{
             writer.close();
         }catch (FileNotFoundException e){
             throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ",e);
-        } catch (IOException e) {
+
+        }  catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Address book created successfully");
