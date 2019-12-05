@@ -11,6 +11,7 @@ public class AddressBookTestClass {
 
     AddressBookServicesImplementation addressBookServices = new AddressBookServicesImplementation();
     String adressBookPath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/newaddressbook.json";
+
     @Test
     public void check_WhenAddressBook_Created_ReturnTrue() throws IOException, AddressBookCustomException {
 
@@ -41,5 +42,15 @@ public class AddressBookTestClass {
         }
     }
 
+    @Test
+    public void readAllGivenData_OfAddressBook() {
 
+        try {
+            Assert.assertEquals("7350055253",addressBookServices.openAddressBook(
+                    "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/newaddressbook.json"));
+        } catch (AddressBookCustomException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
+        }
+    }
 }

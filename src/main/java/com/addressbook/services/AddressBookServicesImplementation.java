@@ -9,11 +9,10 @@
 package com.addressbook.services;
 
 import com.addressbook.customexception.AddressBookCustomException;
+import com.addressbook.model.AddressBook;
 import com.addressbook.objectfactory.ObjectFactory;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class AddressBookServicesImplementation implements AddressBookServices{
 
@@ -67,4 +66,49 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
         return objectFactory.personList.get(0).getMobileNumber();
     }
+
+    @Override
+    public boolean openAddressBook(String addressBookName) throws AddressBookCustomException {
+
+        File fileName = new File(addressBookName + ".json");
+        if (fileName.exists())
+        {
+            if (fileName.length() != 0)
+            {
+
+                try
+                {
+                    objectFactory.bufferedReader = new BufferedReader(new FileReader(fileName));
+                }
+                catch (FileNotFoundException e)
+                {
+                    throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "file not found",e);
+                }
+                objectFactory.showData = objectFactory.gson.fromJson(objectFactory.bufferedReader , AddressBook.class);
+                objectFactory.personList.addAll( objectFactory.showData.getPersonData());
+
+                ReadFromFile();
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void ReadFromFile() {
+
+        for (int i=0;i<objectFactory.personList.size();i++){
+
+            System.out.println("First Name : "+objectFactory.showData.getPersonData().get(0).getFirstName());
+            System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(0).getLastName());
+            System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(0).getMobileNumber());
+            System.out.println("City Name: "+objectFactory.showData.getPersonData().get(0).getAddress().getCityName());
+            System.out.println("State Name : "+objectFactory.showData.getPersonData().get(0).getAddress().getStateName());
+            System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(0).getAddress().getZipCode());
+            System.out.println("***********************************************************************************");
+        }
+    }
+
+
 }
