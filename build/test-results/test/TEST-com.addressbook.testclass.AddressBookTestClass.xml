@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T11:28:01" hostname="admin1-LIVA-Z2V" time="0.087">
+  <properties/>
+  <testcase name="check_WhenAddressBook_Created_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.087"/>
+  <system-out><![CDATA[Address book created successfully
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
