@@ -10,7 +10,7 @@ import java.io.IOException;
 public class AddressBookTestClass {
 
     AddressBookServicesImplementation addressBookServices = new AddressBookServicesImplementation();
-    String adressBookPath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/newaddressbook.json";
+    String adressBookPath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/maharashtra.json";
     @Test
     public void check_WhenAddressBook_Created_ReturnTrue() throws IOException, AddressBookCustomException {
 
@@ -29,7 +29,7 @@ public class AddressBookTestClass {
     }
 
     @Test
-    public void givenDataAdd_InAddressBook() {
+    public void givenPersonDataAdd_InAddressBook() {
 
         try {
             Assert.assertEquals("7350055253",addressBookServices.writeDataInAddressBook(
@@ -40,6 +40,8 @@ public class AddressBookTestClass {
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
         }
     }
+
+
 
 
 }
