@@ -52,6 +52,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
         objectFactory.personList.add(objectFactory.personData);
 
         String json = objectFactory.gson.toJson(objectFactory.personList);
+
         FileWriter writer = null;
         try {
             writer = new FileWriter(addressBookPath);
