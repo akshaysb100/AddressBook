@@ -8,8 +8,10 @@
  *******************************************************************************/
 package com.addressbook.services;
 
+import com.addressbook.customexception.AddressBookCustomException;
 import com.addressbook.objectfactory.ObjectFactory;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -17,7 +19,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
 
     @Override
-    public boolean createAddressBook(String addressBookPath) {
+    public boolean createAddressBook(String addressBookPath) throws AddressBookCustomException {
 
         ObjectFactory objectFactory = new ObjectFactory();
 
@@ -27,7 +29,9 @@ public class AddressBookServicesImplementation implements AddressBookServices{
             writer = new FileWriter(addressBookPath);
             writer.write(json);
             writer.close();
-        } catch (IOException e) {
+        }catch (FileNotFoundException e){
+            throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ",e);
+        }  catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Address book created successfully");
