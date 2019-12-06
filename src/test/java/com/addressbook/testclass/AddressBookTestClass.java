@@ -34,8 +34,8 @@ public class AddressBookTestClass {
 
         try {
             Assert.assertEquals("7350055253",addressBookServices.writeDataInAddressBook(
-                    addressBookName,"Akshay","Bavalekar","7350055253","Pune"
-                    ,"Maharashtra",412806));
+                    addressBookName,"Akash","Bavalekar","9834341522","Pune"
+                    ,"Maharashtra",412807));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
@@ -53,4 +53,14 @@ public class AddressBookTestClass {
         }
     }
 
+    @Test
+    public void givenAddressBook_SearchPersonData_WhenFound_ReturnTrue() {
+
+        try {
+            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"9834341522"));
+        } catch (AddressBookCustomException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
+        }
+    }
 }
