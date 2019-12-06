@@ -10,12 +10,12 @@ import java.io.IOException;
 public class AddressBookTestClass {
 
     AddressBookServicesImplementation addressBookServices = new AddressBookServicesImplementation();
-    String addressBookPath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/person.json";
+    String addressBookName = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/person.json";
 
     @Test
     public void check_WhenAddressBook_Created_ReturnTrue() throws IOException, AddressBookCustomException {
 
-        Assert.assertEquals(true,addressBookServices.createAddressBook( addressBookPath));
+        Assert.assertEquals(true,addressBookServices.createAddressBook(addressBookName));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class AddressBookTestClass {
 
         try {
             Assert.assertEquals("7350055253",addressBookServices.writeDataInAddressBook(
-                    addressBookPath,"Akshay","Bavalekar","7350055253","Pune"
+                    addressBookName,"Akshay","Bavalekar","7350055253","Pune"
                     ,"Maharashtra",412806));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -46,10 +46,11 @@ public class AddressBookTestClass {
     public void openAddressBook_AndReadAddressBook() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.openAddressBook(addressBookPath));
+            Assert.assertEquals(true,addressBookServices.openAddressBook(addressBookName));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
         }
     }
+
 }

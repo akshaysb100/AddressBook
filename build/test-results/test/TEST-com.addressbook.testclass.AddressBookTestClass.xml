@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T04:24:38" hostname="admin1-LIVA-Z2V" time="0.045">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T04:36:59" hostname="admin1-LIVA-Z2V" time="0.064">
   <properties/>
-  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.045"/>
+  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.064"/>
   <system-out><![CDATA[First Name : Akshay
+Last Name : Bavalekar
+Mobile Number : 7350055253
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412806
+***********************************************************************************
+First Name : Akshay
+Last Name : Bavalekar
+Mobile Number : 7350055253
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412806
+***********************************************************************************
+First Name : Akshay
 Last Name : Bavalekar
 Mobile Number : 7350055253
 City Name: Pune

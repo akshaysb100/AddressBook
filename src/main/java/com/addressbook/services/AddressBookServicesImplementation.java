@@ -11,15 +11,12 @@ package com.addressbook.services;
 import com.addressbook.customexception.AddressBookCustomException;
 
 import com.addressbook.model.AddressBook;
-import com.addressbook.model.PersonData;
 import com.addressbook.objectfactory.ObjectFactory;
-import com.google.gson.Gson;
 
 import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class AddressBookServicesImplementation implements AddressBookServices{
 
@@ -72,29 +69,9 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public boolean openAddressBook(String addressBookName) throws AddressBookCustomException {
 
-        File fileName = new File(addressBookName);
-        if (fileName.exists())
-        {
-            if (fileName.length() != 0)
-            {
-
-                try
-                {
-                    objectFactory.bufferedReader = new BufferedReader(new FileReader(fileName));
-                }
-                catch (FileNotFoundException e)
-                {
-                    throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "file not found",e);
-                }
-                objectFactory.showData = objectFactory.gson.fromJson(objectFactory.bufferedReader , AddressBook.class);
-                objectFactory.personList.addAll( objectFactory.showData.getPersonData());
-
-                ReadFromFile();
-
-                return true;
-            }
-        }
-        return false;
+        boolean value = ReadData(addressBookName);
+        ReadFromFile();
+        return value;
     }
 
     @Override
@@ -113,7 +90,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     }
 
     @Override
-    public void ReadData(String addressBookName) throws AddressBookCustomException {
+    public boolean ReadData(String addressBookName) throws AddressBookCustomException {
 
         File fileName = new File(addressBookName);
         if (fileName.exists()) {
@@ -126,7 +103,9 @@ public class AddressBookServicesImplementation implements AddressBookServices{
                 }
                 objectFactory.showData = objectFactory.gson.fromJson(objectFactory.bufferedReader, AddressBook.class);
                 objectFactory.personList.addAll(objectFactory.showData.getPersonData());
+                return true;
             }
         }
+        return false;
     }
 }

@@ -8,5 +8,5 @@ public interface AddressBookServices {
     public String writeDataInAddressBook(String addressBookPath,String firstName,String lastName,String mobileNumber,String cityName,String stateName,int zipCode) throws AddressBookCustomException;
     public boolean openAddressBook(String addressBookName) throws AddressBookCustomException;
     public void ReadFromFile();
-    public void ReadData(String addressBookName) throws AddressBookCustomException;
+    public boolean ReadData(String addressBookName) throws AddressBookCustomException;
 }
