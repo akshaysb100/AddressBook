@@ -34,7 +34,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public String writeDataInAddressBook(String addressBookPath, String firstName, String lastName, String mobileNumber, String cityName, String stateName, int zipCode) throws AddressBookCustomException {
 
-        ReadData(addressBookPath);
+        readData(addressBookPath);
         objectFactory.personData.setFirstName(firstName);
         objectFactory.personData.setLastName(lastName);
         objectFactory.personData.setMobileNumber(mobileNumber);
@@ -44,7 +44,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
         objectFactory.personData.setAddress(objectFactory.address);
 
         objectFactory.personList.add(objectFactory.personData);
-        objectFactory.showData.setPersonData(objectFactory.personList);
+
         writeDataIntoFile(objectFactory.showData,addressBookPath);
         System.out.println("Add person data into file");
 
@@ -53,6 +53,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
     public void writeDataIntoFile(AddressBook addressBook, String addressBookPath) throws AddressBookCustomException {
 
+        objectFactory.showData.setPersonData(objectFactory.personList);
         String json = objectFactory.gson.toJson(addressBook);
         FileWriter writer = null;
         try {
@@ -69,13 +70,13 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public boolean openAddressBook(String addressBookName) throws AddressBookCustomException {
 
-        boolean value = ReadData(addressBookName);
-        ReadFromFile();
+        boolean value = readData(addressBookName);
+        readFromFile();
         return value;
     }
 
     @Override
-    public void ReadFromFile() {
+    public void readFromFile() {
 
         for (int i=0;i<objectFactory.showData.getPersonData().size();i++){
 
@@ -90,7 +91,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     }
 
     @Override
-    public boolean ReadData(String addressBookName) throws AddressBookCustomException {
+    public boolean readData(String addressBookName) throws AddressBookCustomException {
 
         File fileName = new File(addressBookName);
         if (fileName.exists()) {
@@ -107,5 +108,52 @@ public class AddressBookServicesImplementation implements AddressBookServices{
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean searchPersonDataFromFile(String addressBookName, String mobileNumber) throws AddressBookCustomException {
+
+        try {
+            readData(addressBookName);
+            for(int index = 0; index<objectFactory.showData.getPersonData().size() ; index++){
+
+                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())){
+
+                    System.out.println("Person Information");
+                    System.out.println("First Name : "+objectFactory.showData.getPersonData().get(index).getFirstName());
+                    System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(index).getLastName());
+                    System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(index).getMobileNumber());
+                    System.out.println("City Name : "+objectFactory.showData.getPersonData().get(index).getAddress().getCityName());
+                    System.out.println("State Name : "+objectFactory.showData.getPersonData().get(index).getAddress().getStateName());
+                    System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(index).getAddress().getZipCode());
+                    return true;
+                }
+            }
+        } catch (AddressBookCustomException e) {
+            throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "file not found", e);
+        }
+        throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
+    }
+    @Override
+    public boolean editPersonData(String addressBookName, String mobileNumber, String filedName, String fieldValue) throws AddressBookCustomException {
+
+        try {
+            readData(addressBookName);
+            for (int index = 0; index<objectFactory.showData.getPersonData().size() ; index++){
+
+                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())){
+
+                    if (filedName.equals("firstName")){
+                        System.out.println("fieldValue="+fieldValue);
+                        objectFactory.showData.getPersonData().get(index).setFirstName(fieldValue);
+                    }
+                    writeDataIntoFile(objectFactory.showData,addressBookName);
+                    return true;
+                }
+            }
+        } catch (AddressBookCustomException e) {
+            e.printStackTrace();
+        }
+        throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
     }
 }
