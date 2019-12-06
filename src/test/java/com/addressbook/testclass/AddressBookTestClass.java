@@ -148,10 +148,20 @@ public class AddressBookTestClass {
     }
 
     @Test
-    public void givenAddressBook_SortedByFirstName_ShouldReturnTrue() {
+    public void givenAddressBook_SortBasedByFirstName_ShouldReturnTrue() {
 
         try {
             Assert.assertEquals(true,addressBookServices.sortPersonDetails(addressBookName,"firstName"));
+        } catch (AddressBookCustomException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenAddressBook_SortBasedByLastName_ShouldReturnTrue() {
+
+        try {
+            Assert.assertEquals(true,addressBookServices.sortPersonDetails(addressBookName,"lastName"));
         } catch (AddressBookCustomException e) {
             e.printStackTrace();
         }

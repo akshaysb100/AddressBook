@@ -1,9 +1,9 @@
 {
   "personData": [
     {
-      "firstName": "Akshay",
-      "lastName": "ombale",
-      "mobileNumber": "9403167859",
+      "firstName": "suraj",
+      "lastName": "Bavalekar",
+      "mobileNumber": "7350055232",
       "address": {
         "cityName": "Pune",
         "stateName": "Maharashtra",
@@ -11,9 +11,9 @@
       }
     },
     {
-      "firstName": "suraj",
-      "lastName": "Bavalekar",
-      "mobileNumber": "7350055232",
+      "firstName": "Akshay",
+      "lastName": "ombale",
+      "mobileNumber": "9403167859",
       "address": {
         "cityName": "Pune",
         "stateName": "Maharashtra",
