@@ -3,7 +3,7 @@ package com.addressbook.customexception;
 public class AddressBookCustomException extends  Exception {
 
     public enum ExceptionType {
-        NO_SUCH_FILE,NO_SUCH_DATA
+        NO_SUCH_FILE,NO_SUCH_DATA,NO_SUCH_FIELD
     }
 
     public ExceptionType type;

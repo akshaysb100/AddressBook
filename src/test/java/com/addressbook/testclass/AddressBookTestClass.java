@@ -10,16 +10,18 @@ import java.io.IOException;
 public class AddressBookTestClass {
 
     AddressBookServicesImplementation addressBookServices = new AddressBookServicesImplementation();
-    String addressBookName = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/person.json";
+   // String addressBookName = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/person.json";
+    String jsonFilePath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/";
 
     @Test
     public void check_WhenAddressBook_Created_ReturnTrue() throws IOException, AddressBookCustomException {
 
-        Assert.assertEquals(true,addressBookServices.createAddressBook(addressBookName));
+        String fileName="personList";
+        Assert.assertEquals(true,addressBookServices.createAddressBook(jsonFilePath+fileName+".json"));
     }
 
     @Test
-    public void WhenFilePath_AndReturnTypeWrong_TrowException() {
+    public void WhenFilePathEmpty_AndReturnTypeWrong_TrowException() {
 
         try {
             Assert.assertEquals(true,addressBookServices.createAddressBook( ""));
@@ -33,8 +35,9 @@ public class AddressBookTestClass {
     public void givenPersonData_Add_InAddressBook() {
 
         try {
-            Assert.assertEquals("9403167859",addressBookServices.writeDataInAddressBook(
-                    addressBookName,"Akshay","ombale","9403167859","Pune"
+            String fileName="personList";
+            Assert.assertEquals("9403167854",addressBookServices.writeDataInAddressBook(
+                    jsonFilePath+fileName+".json","Tushar","ombale","9403167854","Pune"
                     ,"Maharashtra",412807));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -46,7 +49,8 @@ public class AddressBookTestClass {
     public void openAddressBook_AndReadAddressBook() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.openAddressBook(addressBookName));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.openAddressBook(jsonFilePath+fileName+".json"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
@@ -57,7 +61,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_SearchPersonData_WhenFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"9834641522"));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(jsonFilePath+fileName+".json","7350055232"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
@@ -68,7 +73,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_SearchPersonData_WhenPersonNotFound_ReturnFalse() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"983434152"));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(jsonFilePath+fileName+".json","983434152"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
@@ -80,7 +86,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonFirstName_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834641522",
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.editPersonData(jsonFilePath+fileName+".json","7350055232",
                     "firstName","Rohit"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -92,7 +99,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonLastName_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.editPersonData(jsonFilePath+fileName+".json","9834341522",
                     "lastName","Badole"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -104,7 +112,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonCityName_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.editPersonData(jsonFilePath+fileName+".json","9834341522",
                     "cityName","Mahabaleshwar"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -116,7 +125,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonPinCode_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.editPersonData(jsonFilePath+fileName+".json","9834341522",
                     "pinCode","411412"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -128,7 +138,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonStateName_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.editPersonData(jsonFilePath+fileName+".json","9834341522",
                     "stateName","MP"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -140,7 +151,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_DeletePersonData_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.deletePersonDetails(addressBookName,"9834641522"));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.deletePersonDetails(jsonFilePath+fileName+".json","9834641522"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
@@ -151,7 +163,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_SortBasedByFirstName_ShouldReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.sortPersonDetails(addressBookName,"firstName"));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.sortPersonDetails(jsonFilePath+fileName+".json","firstName"));
         } catch (AddressBookCustomException e) {
             e.printStackTrace();
         }
@@ -161,7 +174,8 @@ public class AddressBookTestClass {
     public void givenAddressBook_SortBasedByLastName_ShouldReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.sortPersonDetails(addressBookName,"lastName"));
+            String fileName="personList";
+            Assert.assertEquals(true,addressBookServices.sortPersonDetails(jsonFilePath+fileName+".json","lastName"));
         } catch (AddressBookCustomException e) {
             e.printStackTrace();
         }

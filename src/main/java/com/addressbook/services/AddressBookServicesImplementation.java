@@ -25,8 +25,6 @@ import java.util.Comparator;
 public class AddressBookServicesImplementation implements AddressBookServices {
 
     ObjectFactory objectFactory = new ObjectFactory();
-    String filepath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile";
-
     @Override
     public boolean createAddressBook(String addressBookPath) throws AddressBookCustomException {
 
