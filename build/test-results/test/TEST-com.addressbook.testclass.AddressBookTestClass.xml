@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T07:07:35" hostname="admin1-LIVA-Z2V" time="0.034">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T09:00:40" hostname="admin1-LIVA-Z2V" time="0.162">
   <properties/>
-  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.034"/>
-  <system-out><![CDATA[First Name : Akshay
-Last Name : Bavalekar
-Mobile Number : 7350055253
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412806
-***********************************************************************************
-First Name : Akshay
-Last Name : Bavalekar
-Mobile Number : 7350055253
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412806
-***********************************************************************************
-First Name : Akshay
-Last Name : Bavalekar
-Mobile Number : 7350055253
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412806
-***********************************************************************************
-First Name : Akshay
-Last Name : Bavalekar
-Mobile Number : 7350055253
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412806
-***********************************************************************************
-First Name : Akshay
-Last Name : Bavalekar
-Mobile Number : 7350055253
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412806
-***********************************************************************************
-First Name : Rohit
-Last Name : Badole
-Mobile Number : 9834341522
-City Name: Mahabaleshwar
-State Name : MP
-Pin Code : 411412
-***********************************************************************************
-First Name : Akash
-Last Name : Bavalekar
-Mobile Number : 9834341522
-City Name: Pune
-State Name : Maharashtra
-Pin Code : 412807
-***********************************************************************************
-]]></system-out>
+  <testcase name="givenAddressBook_DeletePersonData_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.162"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

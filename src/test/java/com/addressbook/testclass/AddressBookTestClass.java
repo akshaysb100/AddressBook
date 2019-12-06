@@ -33,8 +33,8 @@ public class AddressBookTestClass {
     public void givenPersonData_Add_InAddressBook() {
 
         try {
-            Assert.assertEquals("7350055253",addressBookServices.writeDataInAddressBook(
-                    addressBookName,"Akash","Bavalekar","9834341522","Pune"
+            Assert.assertEquals("9403167857",addressBookServices.writeDataInAddressBook(
+                    addressBookName,"sushant","ombale","9403167857","Pune"
                     ,"Maharashtra",412807));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -57,7 +57,7 @@ public class AddressBookTestClass {
     public void givenAddressBook_SearchPersonData_WhenFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"9834341522"));
+            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"9834641522"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
@@ -80,7 +80,7 @@ public class AddressBookTestClass {
     public void givenAddressBook_EditPersonFirstName_WhenPersonFound_ReturnTrue() {
 
         try {
-            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
+            Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834641522",
                     "firstName","Rohit"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -130,6 +130,17 @@ public class AddressBookTestClass {
         try {
             Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
                     "stateName","MP"));
+        } catch (AddressBookCustomException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
+        }
+    }
+
+    @Test
+    public void givenAddressBook_DeletePersonData_ReturnTrue() {
+
+        try {
+            Assert.assertEquals(true,addressBookServices.deletePersonDetails(addressBookName,"9834641522"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);

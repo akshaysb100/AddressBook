@@ -1,1 +1,24 @@
-{"personData":[{"firstName":"Akshay","lastName":"Bavalekar","mobileNumber":"7350055253","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412806}},{"firstName":"Akshay","lastName":"Bavalekar","mobileNumber":"7350055253","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412806}},{"firstName":"Akshay","lastName":"Bavalekar","mobileNumber":"7350055253","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412806}},{"firstName":"Akshay","lastName":"Bavalekar","mobileNumber":"7350055253","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412806}},{"firstName":"Akshay","lastName":"Bavalekar","mobileNumber":"7350055253","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412806}},{"firstName":"Rohit","lastName":"Badole","mobileNumber":"9834341522","address":{"cityName":"Mahabaleshwar","stateName":"MP","zipCode":411412}},{"firstName":"Akash","lastName":"Bavalekar","mobileNumber":"9834341522","address":{"cityName":"Pune","stateName":"Maharashtra","zipCode":412807}}]}
+{
+  "personData": [
+    {
+      "firstName": "suraj",
+      "lastName": "Bavalekar",
+      "mobileNumber": "7350055232",
+      "address": {
+        "cityName": "Pune",
+        "stateName": "Maharashtra",
+        "zipCode": 412807
+      }
+    },
+    {
+      "firstName": "sushant",
+      "lastName": "ombale",
+      "mobileNumber": "9403167857",
+      "address": {
+        "cityName": "Pune",
+        "stateName": "Maharashtra",
+        "zipCode": 412807
+      }
+    }
+  ]
+}

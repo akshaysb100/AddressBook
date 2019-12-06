@@ -48,7 +48,8 @@ public class AddressBookServicesImplementation implements AddressBookServices {
         writeDataIntoFile(objectFactory.showData, addressBookPath);
         System.out.println("Add person data into file");
 
-        return objectFactory.showData.getPersonData().get(0).getMobileNumber();
+        int value=objectFactory.showData.getPersonData().size()-1;
+        return objectFactory.showData.getPersonData().get(value).getMobileNumber();
     }
 
     public void writeDataIntoFile(AddressBook addressBook, String addressBookPath) throws AddressBookCustomException {
@@ -158,6 +159,27 @@ public class AddressBookServicesImplementation implements AddressBookServices {
                     writeDataIntoFile(objectFactory.showData, addressBookName);
                     return true;
                 }
+            }
+        } catch (AddressBookCustomException e) {
+            e.printStackTrace();
+        }
+        throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
+    }
+
+    @Override
+    public boolean deletePersonDetails(String addressBookName, String mobileNumber) throws AddressBookCustomException {
+
+        try {
+            readData(addressBookName);
+            for (int index = 0; index < objectFactory.showData.getPersonData().size(); index++) {
+
+                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())) {
+                    objectFactory.showData.getPersonData().remove(index);
+                    writeDataIntoFile(objectFactory.showData, addressBookName);
+                    return true;
+                }
+                objectFactory.showData.getPersonData().addAll(objectFactory.showData.getPersonData());
+                writeDataIntoFile(objectFactory.showData, addressBookName);
             }
         } catch (AddressBookCustomException e) {
             e.printStackTrace();
