@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T06:37:55" hostname="admin1-LIVA-Z2V" time="0.035">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T06:44:51" hostname="admin1-LIVA-Z2V" time="0.063">
   <properties/>
-  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.035"/>
+  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.063"/>
   <system-out><![CDATA[First Name : Akshay
 Last Name : Bavalekar
 Mobile Number : 7350055253
@@ -37,7 +37,7 @@ City Name: Pune
 State Name : Maharashtra
 Pin Code : 412806
 ***********************************************************************************
-First Name : Pravin
+First Name : Rohit
 Last Name : Bavalekar
 Mobile Number : 9834341522
 City Name: Pune

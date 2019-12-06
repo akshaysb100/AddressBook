@@ -18,15 +18,15 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class AddressBookServicesImplementation implements AddressBookServices{
+public class AddressBookServicesImplementation implements AddressBookServices {
 
     ObjectFactory objectFactory = new ObjectFactory();
-    String filepath="/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile";
+    String filepath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile";
 
     @Override
     public boolean createAddressBook(String addressBookPath) throws AddressBookCustomException {
 
-        writeDataIntoFile(objectFactory.showData,addressBookPath);
+        writeDataIntoFile(objectFactory.showData, addressBookPath);
         System.out.println("Address book created successfully");
         return true;
     }
@@ -45,7 +45,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
         objectFactory.personList.add(objectFactory.personData);
 
-        writeDataIntoFile(objectFactory.showData,addressBookPath);
+        writeDataIntoFile(objectFactory.showData, addressBookPath);
         System.out.println("Add person data into file");
 
         return objectFactory.showData.getPersonData().get(0).getMobileNumber();
@@ -60,8 +60,8 @@ public class AddressBookServicesImplementation implements AddressBookServices{
             writer = new FileWriter(addressBookPath);
             writer.write(json);
             writer.close();
-        }catch (FileNotFoundException e){
-            throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ",e);
+        } catch (FileNotFoundException e) {
+            throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ", e);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,14 +78,14 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public void readFromFile() {
 
-        for (int i=0;i<objectFactory.showData.getPersonData().size();i++){
+        for (int i = 0; i < objectFactory.showData.getPersonData().size(); i++) {
 
-            System.out.println("First Name : "+objectFactory.showData.getPersonData().get(i).getFirstName());
-            System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(i).getLastName());
-            System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(i).getMobileNumber());
-            System.out.println("City Name: "+objectFactory.showData.getPersonData().get(i).getAddress().getCityName());
-            System.out.println("State Name : "+objectFactory.showData.getPersonData().get(i).getAddress().getStateName());
-            System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(i).getAddress().getZipCode());
+            System.out.println("First Name : " + objectFactory.showData.getPersonData().get(i).getFirstName());
+            System.out.println("Last Name : " + objectFactory.showData.getPersonData().get(i).getLastName());
+            System.out.println("Mobile Number : " + objectFactory.showData.getPersonData().get(i).getMobileNumber());
+            System.out.println("City Name: " + objectFactory.showData.getPersonData().get(i).getAddress().getCityName());
+            System.out.println("State Name : " + objectFactory.showData.getPersonData().get(i).getAddress().getStateName());
+            System.out.println("Pin Code : " + objectFactory.showData.getPersonData().get(i).getAddress().getZipCode());
             System.out.println("***********************************************************************************");
         }
     }
@@ -115,17 +115,17 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
         try {
             readData(addressBookName);
-            for(int index = 0; index<objectFactory.showData.getPersonData().size() ; index++){
+            for (int index = 0; index < objectFactory.showData.getPersonData().size(); index++) {
 
-                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())){
+                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())) {
 
                     System.out.println("Person Information");
-                    System.out.println("First Name : "+objectFactory.showData.getPersonData().get(index).getFirstName());
-                    System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(index).getLastName());
-                    System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(index).getMobileNumber());
-                    System.out.println("City Name : "+objectFactory.showData.getPersonData().get(index).getAddress().getCityName());
-                    System.out.println("State Name : "+objectFactory.showData.getPersonData().get(index).getAddress().getStateName());
-                    System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(index).getAddress().getZipCode());
+                    System.out.println("First Name : " + objectFactory.showData.getPersonData().get(index).getFirstName());
+                    System.out.println("Last Name : " + objectFactory.showData.getPersonData().get(index).getLastName());
+                    System.out.println("Mobile Number : " + objectFactory.showData.getPersonData().get(index).getMobileNumber());
+                    System.out.println("City Name : " + objectFactory.showData.getPersonData().get(index).getAddress().getCityName());
+                    System.out.println("State Name : " + objectFactory.showData.getPersonData().get(index).getAddress().getStateName());
+                    System.out.println("Pin Code : " + objectFactory.showData.getPersonData().get(index).getAddress().getZipCode());
                     return true;
                 }
             }
@@ -134,20 +134,20 @@ public class AddressBookServicesImplementation implements AddressBookServices{
         }
         throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
     }
+
     @Override
     public boolean editPersonData(String addressBookName, String mobileNumber, String filedName, String fieldValue) throws AddressBookCustomException {
 
         try {
             readData(addressBookName);
-            for (int index = 0; index<objectFactory.showData.getPersonData().size() ; index++){
+            for (int index = 0; index < objectFactory.showData.getPersonData().size(); index++) {
 
-                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())){
+                if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())) {
 
-                    if (filedName.equals("firstName")){
-                        System.out.println("fieldValue="+fieldValue);
+                    if (filedName.equals("firstName")) {
                         objectFactory.showData.getPersonData().get(index).setFirstName(fieldValue);
                     }
-                    writeDataIntoFile(objectFactory.showData,addressBookName);
+                    writeDataIntoFile(objectFactory.showData, addressBookName);
                     return true;
                 }
             }

@@ -75,12 +75,13 @@ public class AddressBookTestClass {
         }
     }
 
+
     @Test
     public void givenAddressBook_EditPersonFirstName_WhenPersonFound_ReturnTrue() {
 
         try {
             Assert.assertEquals(true,addressBookServices.editPersonData(addressBookName,"9834341522",
-                    "firstName","Pravin"));
+                    "firstName","Rohit"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
