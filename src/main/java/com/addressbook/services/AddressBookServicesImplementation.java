@@ -131,6 +131,6 @@ public class AddressBookServicesImplementation implements AddressBookServices{
         } catch (AddressBookCustomException e) {
             throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "file not found", e);
         }
-        return false;
+        throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
     }
 }

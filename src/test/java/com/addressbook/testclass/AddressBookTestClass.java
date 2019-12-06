@@ -60,7 +60,18 @@ public class AddressBookTestClass {
             Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"9834341522"));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
-            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_FILE,e.type);
+            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
+        }
+    }
+
+    @Test
+    public void givenAddressBook_SearchPersonData_WhenPersonNotFound_ReturnFalse() {
+
+        try {
+            Assert.assertEquals(true,addressBookServices.searchPersonDataFromFile(addressBookName,"983434152"));
+        } catch (AddressBookCustomException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
         }
     }
 }
