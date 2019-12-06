@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T12:56:00" hostname="admin1-LIVA-Z2V" time="0.023">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T03:53:48" hostname="admin1-LIVA-Z2V" time="0.023">
   <properties/>
-  <testcase name="givenPersonDataAdd_InAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.023"/>
-  <system-out><![CDATA[Add person data into file
+  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.023"/>
+  <system-out><![CDATA[First Name : Akshay
+Last Name : Bavalekar
+Mobile Number : 7350055253
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412806
+***********************************************************************************
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

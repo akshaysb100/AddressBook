@@ -9,31 +9,27 @@
 package com.addressbook.services;
 
 import com.addressbook.customexception.AddressBookCustomException;
-<<<<<<< HEAD
+
 import com.addressbook.model.AddressBook;
-=======
 import com.addressbook.model.PersonData;
->>>>>>> master
 import com.addressbook.objectfactory.ObjectFactory;
 import com.google.gson.Gson;
 
-<<<<<<< HEAD
 import java.io.*;
-=======
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
->>>>>>> master
 
 public class AddressBookServicesImplementation implements AddressBookServices{
 
     ObjectFactory objectFactory = new ObjectFactory();
+    String filepath="/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile";
 
     @Override
     public boolean createAddressBook(String addressBookPath) throws AddressBookCustomException {
 
-        writeDataIntoFile(objectFactory.personList,addressBookPath);
+        writeDataIntoFile(objectFactory.showData,addressBookPath);
         System.out.println("Address book created successfully");
         return true;
     }
@@ -50,16 +46,16 @@ public class AddressBookServicesImplementation implements AddressBookServices{
         objectFactory.personData.setAddress(objectFactory.address);
 
         objectFactory.personList.add(objectFactory.personData);
-
-        writeDataIntoFile(objectFactory.personList,addressBookPath);
+        objectFactory.showData.setPersonData(objectFactory.personList);
+        writeDataIntoFile(objectFactory.showData,addressBookPath);
         System.out.println("Add person data into file");
 
-        return objectFactory.personList.get(0).getMobileNumber();
+        return objectFactory.showData.getPersonData().get(0).getMobileNumber();
     }
 
-    public void writeDataIntoFile(List<PersonData> addressBookList, String addressBookPath) throws AddressBookCustomException {
+    public void writeDataIntoFile(AddressBook addressBook, String addressBookPath) throws AddressBookCustomException {
 
-        String json = objectFactory.gson.toJson(addressBookList);
+        String json = objectFactory.gson.toJson(addressBook);
         FileWriter writer = null;
         try {
             writer = new FileWriter(addressBookPath);
@@ -75,7 +71,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public boolean openAddressBook(String addressBookName) throws AddressBookCustomException {
 
-        File fileName = new File(addressBookName + ".json");
+        File fileName = new File(filepath+"/"+addressBookName+".json");
         if (fileName.exists())
         {
             if (fileName.length() != 0)
@@ -103,7 +99,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public void ReadFromFile() {
 
-        for (int i=0;i<objectFactory.personList.size();i++){
+        for (int i=0;i<objectFactory.showData.getPersonData().size();i++){
 
             System.out.println("First Name : "+objectFactory.showData.getPersonData().get(0).getFirstName());
             System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(0).getLastName());
@@ -114,6 +110,4 @@ public class AddressBookServicesImplementation implements AddressBookServices{
             System.out.println("***********************************************************************************");
         }
     }
-
-
 }
