@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T05:37:06" hostname="admin1-LIVA-Z2V" time="0.025">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T06:01:27" hostname="admin1-LIVA-Z2V" time="0.026">
   <properties/>
-  <testcase name="givenAddressBook_SearchPersonData_WhenPersonNotFound_ReturnFalse" classname="com.addressbook.testclass.AddressBookTestClass" time="0.025"/>
+  <testcase name="givenAddressBook_SearchPersonData_WhenPersonNotFound_ReturnFalse" classname="com.addressbook.testclass.AddressBookTestClass" time="0.026"/>
   <system-out><![CDATA[Exception is : Person not found
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
