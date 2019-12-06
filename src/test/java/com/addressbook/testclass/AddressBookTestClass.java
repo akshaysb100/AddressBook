@@ -33,8 +33,8 @@ public class AddressBookTestClass {
     public void givenPersonData_Add_InAddressBook() {
 
         try {
-            Assert.assertEquals("9403167857",addressBookServices.writeDataInAddressBook(
-                    addressBookName,"sushant","ombale","9403167857","Pune"
+            Assert.assertEquals("9403167859",addressBookServices.writeDataInAddressBook(
+                    addressBookName,"Akshay","ombale","9403167859","Pune"
                     ,"Maharashtra",412807));
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
@@ -144,6 +144,16 @@ public class AddressBookTestClass {
         } catch (AddressBookCustomException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(AddressBookCustomException.ExceptionType.NO_SUCH_DATA,e.type);
+        }
+    }
+
+    @Test
+    public void givenAddressBook_SortedByFirstName_ShouldReturnTrue() {
+
+        try {
+            Assert.assertEquals(true,addressBookServices.sortPersonDetails(addressBookName,"firstName"));
+        } catch (AddressBookCustomException e) {
+            e.printStackTrace();
         }
     }
 }

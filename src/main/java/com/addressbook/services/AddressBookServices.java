@@ -12,4 +12,5 @@ public interface AddressBookServices {
     public boolean searchPersonDataFromFile(String addressBookName,String mobileNumber) throws AddressBookCustomException;
     public boolean editPersonData(String addressBookName,String mobileNumber,String filedName,String fieldValue) throws AddressBookCustomException;
     public boolean deletePersonDetails(String addressBookName, String mobileNumber) throws AddressBookCustomException;
+    public boolean sortPersonDetails(String addressBookName,String fieldName) throws AddressBookCustomException;
 }

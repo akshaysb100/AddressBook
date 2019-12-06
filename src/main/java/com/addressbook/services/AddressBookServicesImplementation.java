@@ -11,12 +11,16 @@ package com.addressbook.services;
 import com.addressbook.customexception.AddressBookCustomException;
 
 import com.addressbook.model.AddressBook;
+import com.addressbook.model.PersonData;
 import com.addressbook.objectfactory.ObjectFactory;
 
 import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AddressBookServicesImplementation implements AddressBookServices {
 
@@ -185,5 +189,35 @@ public class AddressBookServicesImplementation implements AddressBookServices {
             e.printStackTrace();
         }
         throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_DATA, "Person not found");
+    }
+
+    @Override
+    public boolean sortPersonDetails(String addressBookName,String fieldName) throws AddressBookCustomException {
+
+        readData(addressBookName);
+        File fileName = new File(addressBookName);
+        Collections.sort(objectFactory.personList,new Comparator<PersonData>()
+        {
+            @Override
+            public int compare(PersonData o1, PersonData o2)
+            {
+                try
+                {
+                    Field fieldType = PersonData.class.getDeclaredField(fieldName);
+                    fieldType.setAccessible(true);
+                    Comparable stateCensusFieldValue1 = (Comparable) fieldType.get(o1);
+                    Comparable stateCensusFieldValue2 = (Comparable) fieldType.get(o2);
+                    return stateCensusFieldValue1.compareTo(stateCensusFieldValue2);
+                }
+                catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)
+                {
+                    e.printStackTrace();
+                    return 0;
+                }
+            }
+        });
+        objectFactory.showData.setPersonData(objectFactory.personList);
+        writeDataIntoFile(objectFactory.showData, addressBookName);
+        return true;
     }
 }
