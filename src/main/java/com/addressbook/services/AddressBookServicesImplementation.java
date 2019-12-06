@@ -150,9 +150,10 @@ public class AddressBookServicesImplementation implements AddressBookServices {
                         objectFactory.showData.getPersonData().get(index).setLastName(fieldValue);
                     }else if (filedName.equals("cityName")){
                         objectFactory.showData.getPersonData().get(index).getAddress().setCityName(fieldValue);
-                    }
-                    else if (filedName.equals("pinCode")){
+                    } else if (filedName.equals("pinCode")){
                         objectFactory.showData.getPersonData().get(index).getAddress().setZipCode(Integer.parseInt(fieldValue));
+                    }else if (filedName.equals("stateName")){
+                        objectFactory.showData.getPersonData().get(index).getAddress().setStateName(fieldValue);
                     }
                     writeDataIntoFile(objectFactory.showData, addressBookName);
                     return true;
