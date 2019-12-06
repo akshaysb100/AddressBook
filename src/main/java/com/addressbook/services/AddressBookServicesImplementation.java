@@ -146,6 +146,8 @@ public class AddressBookServicesImplementation implements AddressBookServices {
 
                     if (filedName.equals("firstName")) {
                         objectFactory.showData.getPersonData().get(index).setFirstName(fieldValue);
+                    }else if (filedName.equals("lastName")){
+                        objectFactory.showData.getPersonData().get(index).setLastName(fieldValue);
                     }
                     writeDataIntoFile(objectFactory.showData, addressBookName);
                     return true;
