@@ -37,6 +37,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public String writeDataInAddressBook(String addressBookPath, String firstName, String lastName, String mobileNumber, String cityName, String stateName, int zipCode) throws AddressBookCustomException {
 
+        ReadData(addressBookPath);
         objectFactory.personData.setFirstName(firstName);
         objectFactory.personData.setLastName(lastName);
         objectFactory.personData.setMobileNumber(mobileNumber);
@@ -71,7 +72,7 @@ public class AddressBookServicesImplementation implements AddressBookServices{
     @Override
     public boolean openAddressBook(String addressBookName) throws AddressBookCustomException {
 
-        File fileName = new File(filepath+"/"+addressBookName+".json");
+        File fileName = new File(addressBookName);
         if (fileName.exists())
         {
             if (fileName.length() != 0)
@@ -101,13 +102,31 @@ public class AddressBookServicesImplementation implements AddressBookServices{
 
         for (int i=0;i<objectFactory.showData.getPersonData().size();i++){
 
-            System.out.println("First Name : "+objectFactory.showData.getPersonData().get(0).getFirstName());
-            System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(0).getLastName());
-            System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(0).getMobileNumber());
-            System.out.println("City Name: "+objectFactory.showData.getPersonData().get(0).getAddress().getCityName());
-            System.out.println("State Name : "+objectFactory.showData.getPersonData().get(0).getAddress().getStateName());
-            System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(0).getAddress().getZipCode());
+            System.out.println("First Name : "+objectFactory.showData.getPersonData().get(i).getFirstName());
+            System.out.println("Last Name : "+objectFactory.showData.getPersonData().get(i).getLastName());
+            System.out.println("Mobile Number : "+objectFactory.showData.getPersonData().get(i).getMobileNumber());
+            System.out.println("City Name: "+objectFactory.showData.getPersonData().get(i).getAddress().getCityName());
+            System.out.println("State Name : "+objectFactory.showData.getPersonData().get(i).getAddress().getStateName());
+            System.out.println("Pin Code : "+objectFactory.showData.getPersonData().get(i).getAddress().getZipCode());
             System.out.println("***********************************************************************************");
+        }
+    }
+
+    @Override
+    public void ReadData(String addressBookName) throws AddressBookCustomException {
+
+        File fileName = new File(addressBookName);
+        if (fileName.exists()) {
+            if (fileName.length() != 0) {
+
+                try {
+                    objectFactory.bufferedReader = new BufferedReader(new FileReader(fileName));
+                } catch (FileNotFoundException e) {
+                    throw new AddressBookCustomException(AddressBookCustomException.ExceptionType.NO_SUCH_FILE, "file not found", e);
+                }
+                objectFactory.showData = objectFactory.gson.fromJson(objectFactory.bufferedReader, AddressBook.class);
+                objectFactory.personList.addAll(objectFactory.showData.getPersonData());
+            }
         }
     }
 }
