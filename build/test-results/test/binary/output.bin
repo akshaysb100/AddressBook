@@ -1,0 +1,45 @@
+Person Information
+First Name : Rohit
+Last Name : Bavalekar
+Mobile Number : 7350055232
+City Name : Pune
+State Name : Maharashtra
+Pin Code : 412807
+First Name : Rohit
+Last Name : Bavalekar
+Mobile Number : 7350055232
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412807
+T***********************************************************************************
+First Name : Akshay
+Last Name : ombale
+Mobile Number : 9403167859
+City Name: Pune2
+State Name : Maharashtra
+Pin Code : 372807
+T***********************************************************************************
+First Name : Tushar
+Last Name : ombale
+Mobile Number : 9403167854
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412807
+T***********************************************************************************
+First Name : sushant
+Last Name : ombale
+Mobile Number : 9403167857
+City Name: Pune1
+State Name : Maharashtra
+Pin Code : 382807
+T***********************************************************************************
+Add person data into file
+ Exception is : Person not found
+ Exception is : Person not found
+"Address book created successfully
+	 Exception is : Person not found
+
+ Exception is : Person not found
+6Exception is : please Enter proper file path or type 
+ Exception is : Person not found
+ Exception is : Person not found

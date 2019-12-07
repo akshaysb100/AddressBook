@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T11:31:26" hostname="admin1-LIVA-Z2V" time="0.021">
+<testsuite name="com.addressbook.testclass.AddressBookTestClass" tests="14" skipped="0" failures="0" errors="0" timestamp="2019-12-06T13:08:09" hostname="admin1-LIVA-Z2V" time="0.39">
   <properties/>
-  <testcase name="givenAddressBook_SortBasedByLastName_ShouldReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.021"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="givenAddressBook_SearchPersonData_WhenFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.076"/>
+  <testcase name="openAddressBook_AndReadAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.072"/>
+  <testcase name="givenPersonData_Add_InAddressBook" classname="com.addressbook.testclass.AddressBookTestClass" time="0.039"/>
+  <testcase name="givenAddressBook_EditPersonStateName_WhenPersonFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.011"/>
+  <testcase name="givenAddressBook_EditPersonLastName_WhenPersonFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.014"/>
+  <testcase name="givenAddressBook_EditPersonFirstName_WhenPersonFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.112"/>
+  <testcase name="check_WhenAddressBook_Created_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.003"/>
+  <testcase name="givenAddressBook_SearchPersonData_WhenPersonNotFound_ReturnFalse" classname="com.addressbook.testclass.AddressBookTestClass" time="0.002"/>
+  <testcase name="givenAddressBook_EditPersonCityName_WhenPersonFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.001"/>
+  <testcase name="WhenFilePathEmpty_AndReturnTypeWrong_TrowException" classname="com.addressbook.testclass.AddressBookTestClass" time="0.002"/>
+  <testcase name="givenAddressBook_EditPersonPinCode_WhenPersonFound_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.014"/>
+  <testcase name="givenAddressBook_SortBasedByFirstName_ShouldReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.004"/>
+  <testcase name="givenAddressBook_DeletePersonData_ReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.003"/>
+  <testcase name="givenAddressBook_SortBasedByLastName_ShouldReturnTrue" classname="com.addressbook.testclass.AddressBookTestClass" time="0.002"/>
+  <system-out><![CDATA[Person Information
+First Name : Rohit
+Last Name : Bavalekar
+Mobile Number : 7350055232
+City Name : Pune
+State Name : Maharashtra
+Pin Code : 412807
+First Name : Rohit
+Last Name : Bavalekar
+Mobile Number : 7350055232
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412807
+***********************************************************************************
+First Name : Akshay
+Last Name : ombale
+Mobile Number : 9403167859
+City Name: Pune2
+State Name : Maharashtra
+Pin Code : 372807
+***********************************************************************************
+First Name : Tushar
+Last Name : ombale
+Mobile Number : 9403167854
+City Name: Pune
+State Name : Maharashtra
+Pin Code : 412807
+***********************************************************************************
+First Name : sushant
+Last Name : ombale
+Mobile Number : 9403167857
+City Name: Pune1
+State Name : Maharashtra
+Pin Code : 382807
+***********************************************************************************
+Add person data into file
+Exception is : Person not found
+Exception is : Person not found
+Address book created successfully
+Exception is : Person not found
+Exception is : Person not found
+Exception is : please Enter proper file path or type 
+Exception is : Person not found
+Exception is : Person not found
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

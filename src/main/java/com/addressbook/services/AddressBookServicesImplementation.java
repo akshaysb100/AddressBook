@@ -28,7 +28,7 @@ public class AddressBookServicesImplementation implements AddressBookServices {
     @Override
     public boolean createAddressBook(String addressBookPath) throws AddressBookCustomException {
 
-        writeDataIntoFile(objectFactory.showData, addressBookPath);
+        saveDataInFile(objectFactory.showData, addressBookPath);
         System.out.println("Address book created successfully");
         return true;
     }
@@ -47,14 +47,14 @@ public class AddressBookServicesImplementation implements AddressBookServices {
 
         objectFactory.personList.add(objectFactory.personData);
 
-        writeDataIntoFile(objectFactory.showData, addressBookPath);
+        saveDataInFile(objectFactory.showData, addressBookPath);
         System.out.println("Add person data into file");
 
         int value=objectFactory.showData.getPersonData().size()-1;
         return objectFactory.showData.getPersonData().get(value).getMobileNumber();
     }
 
-    public void writeDataIntoFile(AddressBook addressBook, String addressBookPath) throws AddressBookCustomException {
+    public void saveDataInFile(AddressBook addressBook, String addressBookPath) throws AddressBookCustomException {
 
         objectFactory.showData.setPersonData(objectFactory.personList);
         String json = objectFactory.gson.toJson(addressBook);
@@ -158,7 +158,7 @@ public class AddressBookServicesImplementation implements AddressBookServices {
                     }else if (filedName.equals("stateName")){
                         objectFactory.showData.getPersonData().get(index).getAddress().setStateName(fieldValue);
                     }
-                    writeDataIntoFile(objectFactory.showData, addressBookName);
+                    saveDataInFile(objectFactory.showData, addressBookName);
                     return true;
                 }
             }
@@ -177,11 +177,11 @@ public class AddressBookServicesImplementation implements AddressBookServices {
 
                 if (mobileNumber.equals(objectFactory.showData.getPersonData().get(index).getMobileNumber())) {
                     objectFactory.showData.getPersonData().remove(index);
-                    writeDataIntoFile(objectFactory.showData, addressBookName);
+                    saveDataInFile(objectFactory.showData, addressBookName);
                     return true;
                 }
                 objectFactory.showData.getPersonData().addAll(objectFactory.showData.getPersonData());
-                writeDataIntoFile(objectFactory.showData, addressBookName);
+                saveDataInFile(objectFactory.showData, addressBookName);
             }
         } catch (AddressBookCustomException e) {
             e.printStackTrace();
@@ -215,7 +215,7 @@ public class AddressBookServicesImplementation implements AddressBookServices {
             }
         });
         objectFactory.showData.setPersonData(objectFactory.personList);
-        writeDataIntoFile(objectFactory.showData, addressBookName);
+        saveDataInFile(objectFactory.showData, addressBookName);
         return true;
     }
 }

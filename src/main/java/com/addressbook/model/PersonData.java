@@ -9,6 +9,7 @@
 package com.addressbook.model;
 
 public class PersonData {
+    
     private String firstName;
     private String lastName;
     private String mobileNumber;

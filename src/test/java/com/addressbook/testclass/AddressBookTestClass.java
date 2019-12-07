@@ -10,7 +10,6 @@ import java.io.IOException;
 public class AddressBookTestClass {
 
     AddressBookServicesImplementation addressBookServices = new AddressBookServicesImplementation();
-   // String addressBookName = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/person.json";
     String jsonFilePath = "/home/user/IdeaProjects/AddressBookProject/src/test/java/com/addressbook/jesonfile/";
 
     @Test
